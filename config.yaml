@@ -1,0 +1,122 @@
+app:
+  name: "ICICI Bank Performance Intelligence Dashboard"
+  version: "1.0.0"
+  description: "Comprehensive institutional-grade banking performance analytics and peer benchmarking platform"
+
+database:
+  url: "sqlite:///db/bank.db"
+  echo: false
+
+company:
+  primary:
+    ticker: "ICICIBANK.NS"
+    name: "ICICI Bank Ltd."
+    code: "ICICI"
+    sector: "Banking / Financial Services"
+    currency: "INR"
+    unit: "Crore"
+  peers:
+    - ticker: "HDFCBANK.NS"
+      name: "HDFC Bank Ltd."
+      code: "HDFC"
+      sector: "Private Bank"
+    - ticker: "SBIN.NS"
+      name: "State Bank of India"
+      code: "SBI"
+      sector: "Public Sector Bank"
+    - ticker: "AXISBANK.NS"
+      name: "Axis Bank Ltd."
+      code: "AXIS"
+      sector: "Private Bank"
+    - ticker: "KOTAKBANK.NS"
+      name: "Kotak Mahindra Bank Ltd."
+      code: "KOTAK"
+      sector: "Private Bank"
+
+benchmarks:
+  - code: "^NSEBANK"
+    name: "Nifty Bank Index"
+  - code: "^NSEI"
+    name: "Nifty 50 Index"
+
+date_range:
+  start_date: "2023-04-01"
+  end_date: "2026-10-31"
+  default_quarters: 12
+
+kpis:
+  profitability:
+    - code: "nii_cr"
+      name: "Net Interest Income"
+      unit: "₹ Cr"
+      higher_is_better: true
+    - code: "other_income_cr"
+      name: "Other Income / Non-Interest"
+      unit: "₹ Cr"
+      higher_is_better: true
+    - code: "pat_cr"
+      name: "Profit After Tax"
+      unit: "₹ Cr"
+      higher_is_better: true
+    - code: "nim_pct"
+      name: "Net Interest Margin"
+      unit: "%"
+      higher_is_better: true
+    - code: "cost_to_income_pct"
+      name: "Cost to Income Ratio"
+      unit: "%"
+      higher_is_better: false
+    - code: "roa_pct"
+      name: "Return on Assets (Annualised)"
+      unit: "%"
+      higher_is_better: true
+    - code: "roe_pct"
+      name: "Return on Equity (Annualised)"
+      unit: "%"
+      higher_is_better: true
+  asset_quality:
+    - code: "gnpa_pct"
+      name: "Gross NPA Ratio"
+      unit: "%"
+      higher_is_better: false
+    - code: "nnpa_pct"
+      name: "Net NPA Ratio"
+      unit: "%"
+      higher_is_better: false
+    - code: "pcr_pct"
+      name: "Provision Coverage Ratio"
+      unit: "%"
+      higher_is_better: true
+    - code: "provisions_cr"
+      name: "Total Provisions & Contingencies"
+      unit: "₹ Cr"
+      higher_is_better: false
+  balance_sheet:
+    - code: "advances_cr"
+      name: "Total Advances (Loans)"
+      unit: "₹ Cr"
+      higher_is_better: true
+    - code: "deposits_cr"
+      name: "Total Deposits"
+      unit: "₹ Cr"
+      higher_is_better: true
+    - code: "casa_ratio_pct"
+      name: "CASA Ratio"
+      unit: "%"
+      higher_is_better: true
+    - code: "crar_pct"
+      name: "Capital Adequacy Ratio (CRAR)"
+      unit: "%"
+      higher_is_better: true
+
+macro:
+  - code: "REPO_RATE"
+    name: "RBI Policy Repo Rate"
+    unit: "%"
+  - code: "GDP_GROWTH"
+    name: "India Real GDP Growth"
+    unit: "%"
+  - code: "CPI_INFLATION"
+    name: "India CPI Retail Inflation"
+    unit: "%"
+
